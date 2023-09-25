@@ -1,5 +1,6 @@
 package digital.dmtran.api.domain;
 
+import digital.dmtran.api.dto.DadosAtualizacaoRelatorio;
 import digital.dmtran.api.dto.RelatorioDados;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -36,5 +37,70 @@ public class Relatorio {
         this.finalKm = relatorioDados.finalKm();
         this.radio = relatorioDados.radio();
         this.cones = relatorioDados.cones();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public Turno getTurno() {
+        return turno;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public Integer getInicialKm() {
+        return inicialKm;
+    }
+
+    public Integer getFinalKm() {
+        return finalKm;
+    }
+
+    public Integer getRadio() {
+        return radio;
+    }
+
+    public Integer getCones() {
+        return cones;
+    }
+
+    public void AtualizaInformadoes(DadosAtualizacaoRelatorio dados) {
+        if(dados.data() != null){
+            this.data = dados.data();
+        }
+        if(dados.turno() != null){
+            this.turno = dados.turno();
+        }
+        if(dados.placa() != null){
+            this.placa = dados.placa();
+        }
+        if(dados.inicialKm() != null){
+            this.inicialKm = dados.inicialKm();
+        }
+        if(dados.finalKm() != null){
+            this.finalKm = dados.finalKm();
+        }
+        if(dados.radio() != null){
+            this.radio = dados.radio();
+        }
+        if(dados.cones() != null){
+            this.cones = dados.cones();
+        }
+
+    }
+
+    public void excluiRelatorio() {
+        //this.estado(ativo) = false;
     }
 }
