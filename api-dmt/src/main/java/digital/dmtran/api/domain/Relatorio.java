@@ -28,6 +28,8 @@ public class Relatorio {
     private Integer finalKm;
     private Integer radio;
     private Integer cones;
+
+
     public Relatorio(RelatorioDados relatorioDados) {
         this.data = relatorioDados.data();
         this.turno = relatorioDados.turno();
@@ -37,6 +39,7 @@ public class Relatorio {
         this.finalKm = relatorioDados.finalKm();
         this.radio = relatorioDados.radio();
         this.cones = relatorioDados.cones();
+
     }
 
     public Long getId() {
@@ -100,7 +103,6 @@ public class Relatorio {
 
     }
 
-    public void excluiRelatorio() {
-        //this.estado(ativo) = false;
-    }
+
+
 }

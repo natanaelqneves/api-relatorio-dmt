@@ -5,6 +5,7 @@ import digital.dmtran.api.dto.DadosAtualizacaoRelatorio;
 import digital.dmtran.api.dto.DadosListagemRelatorio;
 import digital.dmtran.api.dto.RelatorioDados;
 import digital.dmtran.api.repository.RelatorioRepository;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,9 +23,10 @@ public class RelatorioController {
 
     @PostMapping
     @Transactional
-    public void cadastrarRelatorio(@RequestBody @Valid RelatorioDados dados){
+    public void cadastrarRelatorio(@RequestBody RelatorioDados dados){
         repository.save(new Relatorio(dados));
     }
+
     /*
     @GetMapping
     public Page<DadosListagemRelatorio> listarRelatorios(@PageableDefault(size = 10, sort = {"data"}) Pageable paginacao){
@@ -34,7 +36,7 @@ public class RelatorioController {
 
     @GetMapping
     public Page<DadosListagemRelatorio> listarRelatoriosAtivos(@PageableDefault(size = 10, sort = {"data"}) Pageable paginacao){
-        return repository.findAllByAtivoTrue(paginacao).map(DadosListagemRelatorio::new);//caminho + ?size=1 (quantidade de itens) caminho + ?sort=parametro,(asc, desc)
+        return repository.findAll(paginacao).map(DadosListagemRelatorio::new);//caminho + ?size=1 (quantidade de itens) caminho + ?sort=parametro,(asc, desc)
     }
 
     @PutMapping
@@ -51,11 +53,13 @@ public class RelatorioController {
     }
     */
     //Exclusão lógica se faz necessário criar outra coluna na tabela contendo a informação de conta ativa ou inativa.
-
+    /*
     @DeleteMapping("/{id}")
     @Transactional
     public void alteraEstado(@PathVariable Long id){
         var relatorio = repository.getReferenceById(id);
         relatorio.excluiRelatorio();//Exclusão Lógica
     }
+    */
+
 }

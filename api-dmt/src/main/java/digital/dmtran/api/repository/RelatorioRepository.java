@@ -7,5 +7,5 @@ import org.springframework.data.domain.Range;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RelatorioRepository extends JpaRepository<Relatorio, Long> {
-    Page<Relatorio> findAllByAtivoTrue(Pageable paginacao);
+
 }
