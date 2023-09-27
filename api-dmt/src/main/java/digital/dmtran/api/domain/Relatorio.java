@@ -1,7 +1,7 @@
 package digital.dmtran.api.domain;
 
 import digital.dmtran.api.dto.DadosAtualizacaoRelatorio;
-import digital.dmtran.api.dto.RelatorioDados;
+import digital.dmtran.api.dto.DadosCadastroRelatorio;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -21,16 +21,17 @@ public class Relatorio {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDate data;
-    private Turno turno;
+    private String turno;
     private String matricula;
     private String placa;
     private Integer inicialKm;
     private Integer finalKm;
     private Integer radio;
     private Integer cones;
+    private boolean ativo;
 
 
-    public Relatorio(RelatorioDados relatorioDados) {
+    public Relatorio(DadosCadastroRelatorio relatorioDados) {
         this.data = relatorioDados.data();
         this.turno = relatorioDados.turno();
         this.matricula = relatorioDados.matricula();
@@ -39,6 +40,7 @@ public class Relatorio {
         this.finalKm = relatorioDados.finalKm();
         this.radio = relatorioDados.radio();
         this.cones = relatorioDados.cones();
+        this.ativo = true;
 
     }
 
@@ -50,15 +52,15 @@ public class Relatorio {
         return data;
     }
 
-    public Turno getTurno() {
+    public String getTurno() {
         return turno;
     }
 
-    public String getMatricula() {
+    public java.lang.String getMatricula() {
         return matricula;
     }
 
-    public String getPlaca() {
+    public java.lang.String getPlaca() {
         return placa;
     }
 
@@ -104,5 +106,7 @@ public class Relatorio {
     }
 
 
-
+    public void excluiRelatorio() {
+        this.ativo = false;
+    }
 }
