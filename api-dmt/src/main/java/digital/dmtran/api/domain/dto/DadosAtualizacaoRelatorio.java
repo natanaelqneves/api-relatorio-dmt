@@ -1,4 +1,4 @@
-package digital.dmtran.api.dto;
+package digital.dmtran.api.domain.dto;
 
 import jakarta.validation.constraints.NotNull;
 

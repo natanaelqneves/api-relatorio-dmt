@@ -1,10 +1,10 @@
 package digital.dmtran.api.controller;
 
-import digital.dmtran.api.domain.Relatorio;
-import digital.dmtran.api.dto.DadosAtualizacaoRelatorio;
-import digital.dmtran.api.dto.DadosDetalhadosRelatorio;
-import digital.dmtran.api.dto.DadosListagemRelatorio;
-import digital.dmtran.api.dto.DadosCadastroRelatorio;
+import digital.dmtran.api.domain.entity.Relatorio;
+import digital.dmtran.api.domain.dto.DadosAtualizacaoRelatorio;
+import digital.dmtran.api.domain.dto.DadosDetalhadosRelatorio;
+import digital.dmtran.api.domain.dto.DadosListagemRelatorio;
+import digital.dmtran.api.domain.dto.DadosCadastroRelatorio;
 import digital.dmtran.api.repository.RelatorioRepository;
 
 import jakarta.validation.Valid;
@@ -44,7 +44,6 @@ public class RelatorioController {
     @GetMapping("/{id}")
     public ResponseEntity detalhaRelatorio(@PathVariable Long id){
         var relatorio = repository.getReferenceById(id);
-
         return ResponseEntity.ok(new DadosDetalhadosRelatorio(relatorio));
     }
 

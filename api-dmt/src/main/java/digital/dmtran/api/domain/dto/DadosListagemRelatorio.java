@@ -1,6 +1,6 @@
-package digital.dmtran.api.dto;
+package digital.dmtran.api.domain.dto;
 
-import digital.dmtran.api.domain.Relatorio;
+import digital.dmtran.api.domain.entity.Relatorio;
 
 
 import java.time.LocalDate;

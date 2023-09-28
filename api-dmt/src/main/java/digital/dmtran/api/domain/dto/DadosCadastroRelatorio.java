@@ -1,28 +1,26 @@
-package digital.dmtran.api.dto;
+package digital.dmtran.api.domain.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-
 import java.time.LocalDate;
-
 public record DadosCadastroRelatorio(
         @NotBlank
         LocalDate data,
-        @NotNull
+        @NotBlank
         String turno,
         @NotBlank
         @Pattern(regexp = "\\d{7,8}")
-        java.lang.String matricula,
+        String matricula,
         @NotBlank
         @Pattern(regexp = "\\d{7}")
-        java.lang.String placa,
-        @NotBlank
+        String placa,
+        @NotNull
         Integer inicialKm,
-        @NotBlank
+        @NotNull
         Integer finalKm,
-        @NotBlank
+        @NotNull
         Integer radio,
-        @NotBlank
+        @NotNull
         Integer cones) {
 }
